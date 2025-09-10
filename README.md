@@ -1,4 +1,4 @@
 # practica-fichero-github
-practicar como crear un repositorio de github. 
-este repositorio es para subir archivos de python. 
-baian zhao.
+El proposito principal de este repositorio es para guardar y subir archivos de python.
+Este repositorio contiene diferentes proyectos de Python y archivos de codigos de Python.
+-baian Z.
