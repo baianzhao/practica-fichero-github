@@ -7,4 +7,4 @@ while a == 0:
         print('si es numero')
         a=1 #cuando el input es un numero, para de preguntar y se interumpe el bucle
     elif siono == False:
-        print('no es numero, vuelve a introducir')
+         print('no es numero, vuelve a introducir')
