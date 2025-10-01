@@ -1,0 +1,22 @@
+#Corrige los 4 errores o añade el código que necesites para que el siguiente programa se ejecute correctamente
+
+#inicializo valores a cada variable
+var_numero=str(6734)
+var_suma=float(0)
+#obtengo su longitud
+var_longitud=len(str(var_numero))
+
+#sumo cada digito a partir del índice de cada posición
+d1=float(var_numero[0])# he separado la suma, primero, he cogido el valor de cada numero por separado.
+d2=float(var_numero[1])
+d3=float(var_numero[2])
+d4=float(var_numero[3])
+var_suma= float(d1+d2+d3+d4)# sumar los numeros de d1 a d4, o sea, los 4 digitos
+print(var_suma)# mostrar por pantalla el valor de la suma, para asegurar el resultado.
+#utilizo una condición y el operador aritmético // para saber si el resto da 0 y ver si es par
+if var_suma // 2 == 0:
+    print ('el valor de ',var_suma,'es par')
+else:
+    print('el valor de ',var_suma,'es impar') #asignar una reaccion para cuando el valor de la suma es impar.
+
+ 
