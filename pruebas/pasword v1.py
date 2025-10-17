@@ -12,12 +12,28 @@ print('     Posició 7 Un dels seguent símbols &, /, #')
 print('     Posició 8 Un número menor o igual que 5')
 #asignar el valor de la contraseña
 password=input('Introduce una palabra clave')
+num_err=0
 #detectar el numero de letras
 password_lenth=len(password)
 if password_lenth >= 6 and password_lenth <= 8:
     if password_lenth == 6:
         p1=password[0]
-        print(p1)
+        p2=password[1]
+        p3=password[2]
+        p4=password[3]
+        p5=password[4]
+        p6=password[5]
+        if p1 != 1 and p1 != 5 and p1 > 5:
+            print('Error en el caràcter 1')
+            num_err=num_err +1
+        else:
+            uplow=p2.isupper
+            if uplow == False:
+                print('Error en el caràcter 2')
+                num_err= num_err +1
+            else:
+                print()
+        
 
 
     elif password_lenth == 7:
