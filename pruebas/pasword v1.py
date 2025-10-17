@@ -12,3 +12,22 @@ print('     Posició 7 Un dels seguent símbols &, /, #')
 print('     Posició 8 Un número menor o igual que 5')
 #asignar el valor de la contraseña
 password=input('Introduce una palabra clave')
+#detectar el numero de letras
+password_lenth=len(password)
+if password_lenth >= 6 and password_lenth <= 8:
+    if password_lenth == 6:
+        p1=password[0]
+        print(p1)
+
+
+    elif password_lenth == 7:
+        print('9')
+    
+    elif password_lenth == 8:
+        print('f')
+
+else:
+    print('Error, el password té una longitud de ',password_lenth,' caràcters i no compleix els requisits')#mensaje de error
+
+    
+
