@@ -38,9 +38,10 @@ else:
         num_err=num_err+1
         merror=merror+'/Error en el carácter 1/'
     else:
-        if int(n1)>8 or int(n1)<6:
+        if int(n1)>5 or int(n1)<1:
             num_err=num_err+1
             merror=merror+'/Error en el carácter 1/'
+        
 
 #n2
     if n2.isalpha()==False:
