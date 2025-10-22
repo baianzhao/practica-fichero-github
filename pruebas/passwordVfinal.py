@@ -93,9 +93,9 @@ else:
 
     if password_lenth==7 or password_lenth==8:
         s71=n7.find('&' or '/' or '#')
-    if s71 >0:
-       num_err=num_err +1
-       merror=merror+'/Error en el caracter 7/' 
+        if s71 >0:
+            num_err=num_err +1
+            merror=merror+'/Error en el caracter 7/' 
 
 #n8
     if password_lenth==8:
