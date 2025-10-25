@@ -62,8 +62,8 @@ else:#si cumple la longitud, entonces, asignar variables de cada caracter con el
             merror=merror+'/Error en el caracter 3/'#si es, entonces nada, si no es, entonces error.
     
 #n4
-    s41=n4.count('*' or '_' or '@')#buscar si en esa posicion hay uno de esos signos, te devuelve un numero, si es 0, es que no hay.
-    if s41 >=0:#si no hay uno de esos simbolos, error.
+    s41=n4.find('*' or '_' or '@')#buscar si en esa posicion hay uno de esos signos, te devuelve un numero, si es 0, es que no hay.
+    if s41 >0:#si no hay uno de esos simbolos, error.
        num_err=num_err +1
        merror=merror+'/Error en el caracter 4/' 
     
@@ -88,8 +88,8 @@ else:#si cumple la longitud, entonces, asignar variables de cada caracter con el
 
 #n7    # se añade un condicional mas, para detectar si la longitud del password es mayor de 6.
     if password_lenth==7 or password_lenth==8:#ver la posicion 4 del password, consiste en lo mismo solo cambiando los signos.
-        s71=n7.count('&' or '/' or '#')
-        if s71 >=0:
+        s71=n7.find('&' or '/' or '#')
+        if s71 >0:
             num_err=num_err +1
             merror=merror+'/Error en el caracter 7/' 
 
