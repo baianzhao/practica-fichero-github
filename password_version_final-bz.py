@@ -62,8 +62,8 @@ else:#si cumple la longitud, entonces, asignar variables de cada caracter con el
             merror=merror+'/Error en el caracter 3/'#si es, entonces nada, si no es, entonces error.
     
 #n4
-    if n4 not in '*_@':
-       num_err=num_err +1
+    if n4 not in '*_@':#detectar si en caracter 4 esta dentro de los simbolos
+       num_err=num_err +1#error mas 1
        merror=merror+'/Error en el caracter 4/' 
     
 #n5
@@ -87,7 +87,7 @@ else:#si cumple la longitud, entonces, asignar variables de cada caracter con el
 
 #n7    # se añade un condicional mas, para detectar si la longitud del password es mayor de 6.
     if password_lenth==7 or password_lenth==8:#ver la posicion 4 del password, consiste en lo mismo solo cambiando los signos.
-        if n7 not in '&/#':
+        if n7 not in '&/#':#detectar si caracter 7 esta en esos simbolos.
             num_err=num_err +1
             merror=merror+'/Error en el caracter 7/' 
 
