@@ -62,7 +62,7 @@ else:#si cumple la longitud, entonces, asignar variables de cada caracter con el
             merror=merror+'/Error en el caracter 3/'#si es, entonces nada, si no es, entonces error.
     
 #n4
-    s41=n4.find('*' or '_' or '@')#buscar si en esa posicion hay uno de esos signos, te devuelve un numero, si es 0, es que no hay.
+    s41=n4.count('*' or '_' or '@')#buscar si en esa posicion hay uno de esos signos, te devuelve un numero, si es 0, es que no hay.
     if s41 >0:#si no hay uno de esos simbolos, error.
        num_err=num_err +1
        merror=merror+'/Error en el caracter 4/' 
