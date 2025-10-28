@@ -59,7 +59,7 @@ else:#si cumple la longitud, entonces, asignar variables de cada caracter con el
         merror=merror+'/Error en el caracter 5/'
 
 #n6
-    if not n6.isnumeric()==True or not int(n6)<=9 or int(n6)>=6:
+    if not n6.isnumeric()==True or not int(n6)<=9 or not int(n6)>=6:
         num_err=num_err +1#si no es, directamente error.
         merror=merror+'/Error en el caracter 6/'
 
