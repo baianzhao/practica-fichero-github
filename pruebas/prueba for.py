@@ -11,5 +11,3 @@ for i in password:
 
 print(total)
 print(totv)
-   
-
