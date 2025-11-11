@@ -4,12 +4,27 @@
 
 i1=int(input('introduce el primer intervalo'))
 i2=int(input('introduce el segundo intervalo'))
+veces=0
+if i2<i1:
+    r=i1-i2
+else: 
+    r=i2-i1
 
 if i1<i2:
     for n in range(i1, (i2+1), 1):
-        print(n, end='-')
+        if veces<r:
+            print(n, end='-')
+            veces+=1
+        else:
+            print(n, end='')
+            veces+=1
     
 elif i2<i1:
     for n in range(i1, (i2-1), -1):
-        print(n, end='-')
+        if veces < r:
+            print(n, end='-')
+            veces+=1
+        else:
+            print(n, end='')
+            veces+=1
     
