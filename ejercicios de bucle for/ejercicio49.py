@@ -4,17 +4,15 @@
 ps=input('introduce la palabra secreta')
 lenps=len(ps)
 print('tienes ',lenps,' intentos para introducir letras')
+pos=0
 
-for n in range(lenps):
-    psp=input('introduce una letra')
-    if psp in ps:
-        print('la letra existe')
-        n=str(n)
-        pos=ps.count(n)
-        print(pos)
-        
-        
-        
+for x in range(lenps):
+    let=input('introduce una letra')
+    if let in ps:
+            print('la letra existe')
+            for i in range(lenps):
+                if ps[i]==let:
+                    print('la letra esta en la posicion: ',i+1)
     else:
-        print('la letra no exsiste')
+            print('la letra no exisite')
         
