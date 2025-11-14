@@ -1,4 +1,5 @@
-print('Las 3 contraseñas deben de tener como minimo 3 numeros, 3 letras y 2 simbolos cada una')
+print('Las 3 contraseñas deben de tener como minimo 3 numeros, 3 letras y 2 simbolos cada una')#mostrar las condiciones
+ci=0
 cc=0#total de contraseñas correctas
 for password in range(3):#bucle para repetir 3 veces la introduccion de contraseñas
     
@@ -7,7 +8,7 @@ for password in range(3):#bucle para repetir 3 veces la introduccion de contrase
     s=0#variable para total de simbolos
     lm=0#variable para letras mayusculas
     lmi=0#variable para letras minusculas
-    nmi5=0#variables para numeros mayor o igual que 5
+    nmi5=0#variables para numeros mayor o igual que 5---esto es parte de 'distinguir rangos', es decir, detecta 2 'tipos' de numeros
     nmen5=0#variables para numeros menor de 5
     psw=input('introduce una contraseña')#pedir contraseña
     for caracter in psw:
@@ -28,6 +29,7 @@ for password in range(3):#bucle para repetir 3 veces la introduccion de contrase
             s+=1
     if n<3 or l<3 or s<2:#si hay mas de 3 letras, mas de 3 numeros y mas de 2 simbolos, es correcta la contraseña
         print('Error, la contraseña no cumple con los requisitos')
+        ci+=1
     else:
         print('la contraseña es correcta')
         cc+=1
@@ -35,4 +37,4 @@ for password in range(3):#bucle para repetir 3 veces la introduccion de contrase
     print(f'su contraseña tiene {nmen5} numeros menor de 5 y {nmi5} numeros mayor o igual que 5, con un total de {n} numeros')
     
 print('Tiene un total de ',cc,'contraseñas correctas')#despues de repetir 3 veces, se muestra el numero total de contraseñas correctas
-
+print('Tiene un total de ',ci,'contraseñas incorrectas')#mostrar el numero de contraseñas incorrectas.
