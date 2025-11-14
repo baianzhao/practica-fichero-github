@@ -1,5 +1,5 @@
 #Realiza un programa que de los buenos días 3 veces. Con While
-a=3
-while a >0:
+n=3
+while n >0:
     print('Buenos días')
-    a-=1
+    n-=1
