@@ -7,7 +7,7 @@
 
 si=True
 tts=0
-v=0
+v=1
 while si== True:
     n1=int(input('introduce un numero'))
     n2=int(input('introduce un numero'))
@@ -21,4 +21,7 @@ while si== True:
         si=True
         v+=1
 print('programa finalizado')
-print(f'el total de la suma es: {tts} y en total se ha repetido {v} veces')
+if v==1:
+    print(f'el total de la suma es: {tts} y en total lleva 1 operación realizada')
+else: 
+    print(f'el total de la suma es: {tts} y en total lleva {v} operaciones realizadas')

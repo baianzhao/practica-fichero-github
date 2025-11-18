@@ -3,7 +3,7 @@
 
 si=True
 tts=0
-v=0
+v=1
 while si== True:
     n1=int(input('introduce un numero'))
     n2=int(input('introduce un numero'))
