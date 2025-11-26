@@ -37,5 +37,6 @@ elif n2<n1:
                 print(n, end='')
             else:
                 print(n, end='-')
+#impares
 
     
