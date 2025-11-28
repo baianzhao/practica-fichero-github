@@ -3,40 +3,26 @@
 
 n1=int(input('introduce el primer numero'))
 n2=int(input('introduce el segundo numero'))
-nn1=0
-nn2=0
-#pares
+nnp=''
+nni=''
+
 if n1<n2:
-    print('los numeros pares son:', end='')
-    if n1%2==0:
+    for i in range(n1, n2):
+        if i%2==0:
+            nnp+=str(i)
+            nnp+='-'
+        elif i%2!=0:
+            nni+=str(i)
+            nni+='-'
+            
+elif n1>n2:
+    for i in range(n2, n1):
+        if i%2==0:
+            nnp+=str(i)
+            nnp+='-'
+        elif i%2!=0:
+            nni+=str(i)
+            nni+='-'
 
-        for n in range(n1,n2,2):
-            if n==n2 or n==n2-2 or n==n2-1:
-                print(n, end='')
-            else:
-                print(n, end='-')
-
-    else:
-        for n in range(n1+1,n2,2):
-            if n==n2 or n==n2-2 or n==n2-1:
-                print(n, end='')
-            else:
-                print(n, end='-')
-
-elif n2<n1:
-    print('los numeros pares son:',end='')
-    if n1%2==0:
-        for n in range(n2,n1,2):
-            if n==n1 or n==n1-2 or n==n1-1:
-                print(n, end='')
-            else:
-                print(n, end='-')
-    else:
-        for n in range(n2,n1,1):
-            if n==n1 or n==n1-2 or n==n1-1:
-                print(n, end='')
-            else:
-                print(n, end='-')
-#impares
-
-    
+print(f'los numeros pares son:{nnp[:-1]}')
+print(f'los numeros impares son:{nni[:-1]}')
