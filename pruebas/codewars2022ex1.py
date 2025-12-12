@@ -1,0 +1,5 @@
+a=input('insert')
+b=input('insert')
+c=input('insert')
+d=input('insert')
+print(f'{a} is the {b} of CodeWars. We {c} you {d} and have fun!')
