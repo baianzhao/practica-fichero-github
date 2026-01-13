@@ -11,9 +11,11 @@ while t==False:
         t=True
         break
 
+
 l2=set(l)
 l3=[]
 for r in l2:
+    if r==
     l3.append(r)
 
 print(l3)
