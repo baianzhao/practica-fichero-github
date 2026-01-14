@@ -11,11 +11,28 @@ while t==False:
         t=True
         break
 
-
 l2=set(l)
 l3=[]
 for r in l2:
-    if r==
-    l3.append(r)
+    if r in 'àá':
+        r='a'
+        l3.append(r)
+    
+    if r in 'éè':
+        r='e'
+        l3.append(r)
+
+    if r in 'íì':
+        r='i'
+        l3.append(r)
+
+    if r in 'óò':
+        r='o'
+        l3.append(r)
+
+    if r in 'úù':
+        r='u'
+        l3.append(r)
+
 
 print(l3)
