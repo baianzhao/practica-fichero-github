@@ -15,7 +15,7 @@ for x in l1:
 l4=l1+l2
 l5=set(l4)
 l6=[]
-for n in l2:
+for n in l1:
     if n not in l3:
         l6.append(n)
 
