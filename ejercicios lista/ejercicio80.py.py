@@ -1,30 +1,20 @@
 #80. Utilizando listas, crea un programa que te permita determinar si un número es decimal o no. 
 
 d=input('introduce un numero decimal')
-dd=d.split('-')
-print(dd)
-e=0
-c=0
+dd=d.split('.')
+nd,c,e=0,0,0
 for x in dd:
-    if x.isnumeric()!=True:
+    x=str(x)
+    if x.isnumeric()==True:
+        x=x
+    
+    else:
         e+=1
-    if x.isalpha()==True:
-        e+=1
-    if x=='.':
-        c+=1
-   
 
-if dd[::-1]=='.':
-    e+=1
-
-
-
-if e>=1 or c<1:
-    print('error')
+if len(dd)==2 and e==0 and dd[::-1]!='.':
+    print('correcto')
 else:
-
-    print('el valor es decimal')
-
+    print('error')
 
 
 
