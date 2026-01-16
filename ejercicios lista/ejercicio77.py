@@ -4,42 +4,25 @@
 
 lista1=['a','b','D','x','r','X','3','h','w','2','i']
 aod=int(input('Introduce 1 para visualizar en orden ascendente o 2 descendente:'))
-#n
 n=[]
-nint=[]
-
-
-#l
 l=[]
-llower=[]
-lsorted=[]
-#detectar numero o letra
+
 for x in lista1:
     if x in '1234567890':
         n.append(x)
     if x.isalpha()==True:
         l.append(x)
-#procesar listas  
-for m in n:
-    mm=int(m)
-    nint.append(mm)
 
-for y in l:
-    yy=y.lower()
-    llower.append(yy)
-
-
-#ver 1 o 2
+n=list(map(int, n))
 
 
 if aod==1:
-    nsorted=sorted(nint)
-    print(nsorted)
-    llower.sort()
-    print(llower)
-
+    n=sorted(n)
+    l.sort(key=lambda v: v.lower(),reverse=False)
 elif aod==2:
-    nsorted=sorted(nint, reverse=True)
-    print(nsorted)
-    llower.sort(reverse=True)
-    print(llower)
+    n=sorted(n, reverse=True)
+    l.sort(key=lambda v: v.lower(),reverse=True)
+    
+print(n)
+print(l)
+    
