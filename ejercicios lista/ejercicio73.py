@@ -21,9 +21,6 @@ for n in l2:
 
 
 
-print(l4)
-print(l5)
-
 print(f'los repetidos son {l3}')
 
 print(f'los no repetidos son{l6}')
