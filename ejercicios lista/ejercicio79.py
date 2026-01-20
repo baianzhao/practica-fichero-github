@@ -3,5 +3,4 @@
 #Máximo 3 líneas de código.
 
 var1='a,b,1,r,sal,34,mar'
-l=var1.split(',')
-print(len(l))
+print(len(var1.split(',')))
