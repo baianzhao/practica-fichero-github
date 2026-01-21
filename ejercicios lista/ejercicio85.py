@@ -30,20 +30,48 @@ for z in i:
     mi+=z
 mi=mi/na
 
-print(mc,mac,mi)
+mc=round(mc, 2)
+mi=round(mi,2)
+mac=round(mac,2)
+
+
+
 #mediana
 mec,meca,mei=0,0,0
 
-lc=len(c)
-lca=len(ca)
-li=len(i)
+l=len(c)
+
 
 i.sort()
 ca.sort()
 c.sort()
 
+#mediana par
+if l%2==0:
+    ll=(l/2)-1
+    ll=int(ll)
+    mec=int(c[ll]+c[ll+1])/2
+    meca=int(ca[ll]+ca[ll+1])/2
+    mei=int(i[ll]+i[ll+1])/2
+#mediana impar
+else:
+    
+    ll=(l/2)-0.5
+    ll=int(ll)
+    mec=int(c[ll])
+    meca=int(ca[ll])
+    mei=int(i[ll])
 
-print(i, ca, c)
+print(c,ca,i)
+
+print(f'la media de castellano es de {mc}')
+print(f'la media de catalan es de {mac}')
+print(f'la media de ingles es de {mi}')
+print(f'la mediana de castellano es de {mec}')
+print(f'la mediana de catalan es de {meca}')
+print(f'la mediana de ingles es de {mei}')
+    
+
     
 
 
