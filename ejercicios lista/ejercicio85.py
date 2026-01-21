@@ -34,13 +34,10 @@ mc=round(mc, 2)
 mi=round(mi,2)
 mac=round(mac,2)
 
-
-
 #mediana
 mec,meca,mei=0,0,0
 
 l=len(c)
-
 
 i.sort()
 ca.sort()
