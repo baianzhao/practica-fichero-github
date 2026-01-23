@@ -1,5 +1,6 @@
 #Diseñar un programa que al introducir un número calcule la letra correspondiente, teniendo en cuenta los
 #siguientes puntos:
+
 #Controlar que el valor introducido tenga una longitud de 8 dígitos y sea numérico.
 #Visualizar el NIF completo, concatena la letra correspondiente separado con un guion: ej 11111111-R
 #Controlar aquellas situaciones en que el Resto obtenido de un DNI no aparece en la tabla, por tanto, es
@@ -9,64 +10,125 @@
 
 
 
+
 resto=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]
 l='T,R,W,A,G,M,Y,F,P,D,X,B,N,J,Z,S,Q,V,H,L,C,K,E'
 letras=l.split(',')
 s='s'
+ert=0
+errores=0
 lista_intentos=[]
 dni_inc,dni_corr=[],[]
-
 dni_iniciales,dni_final=[],[]
-merr=[]
+e=[]
+
 while s=='s':
     nerr=0
+    let_dni=''
     dni=input('introduce tu DNI')
     DNI=[ch for ch in dni]
-    lf=DNI[-1]
     dni_iniciales.append(dni)
-    dni_num_part=dni[:-1]
-    dni_num_part=int(dni_num_part)
-    
-#detectar errores
-    #longitud
-    if len(DNI)!=8:
-        nerr+=1
-        merr.append('/error longitud/')
-    #deteccion de letras o numeros
-    for x in str(dni_num_part):
+    merr=[]
+    for x in str(dni):
         if x.isnumeric()!=True:
             nerr+=1
+            ert+=nerr
         else:
             nerr=nerr
+
+    if nerr==0:
+        dni=int(dni)  
+    #detectar errores
+
+        #longitud
+        if len(DNI)!=8:
+            nerr+=1
+            ert+=nerr
+            merr.append('/error longitud/')
+            lista_intentos.append(0)
+           
+
+        #deteccion de letras o numeros
+        for x in str(dni):
+            if x.isnumeric()!=True:
+                nerr+=1
+                ert+=nerr
+            else:
+                nerr=nerr
+      
+        int(dni)
+
+        #averiguar el resto
+        rest=dni % 23
+
+        #detectar si el resto esta dentro de lista
+        if int(rest) not in resto:
+            nerr+=1
+            ert+=nerr
+            merr.append('/el DNI no existe/')#error imposible
+            lista_intentos.append(2)
+            
+            
+        else:
+            #averiguar letra
+            if len(DNI)==8:
+                nerr=nerr
+                let_dni=letras[int(rest)]
         
-    int(dni_num_part)
-    #averiguar el resto
-    rest=dni_num_part % 23
+        #resultado correcto o no
 
-    #detectar si el resto esta dentro de lista
-    if int(rest) not in resto:
-        nerr+=0
-    
-    #detectar si la letra es correcta
-    if lf!=letras[int(rest)]:
-        nerr+=1
-        merr.append('/letra incorrecta/')
+                dni_f=f'{dni}-{let_dni}'
+            else:
+                dni_f=dni
+
+        if nerr!=0:
+            dni_inc.append(dni_f)
+            
+        elif nerr==0:
+            dni_corr.append(dni_f)
+            lista_intentos.append(3)
+            print(dni_f)
+#errores
     else:
-        nerr=nerr
-
-    
-    #resultado correcto o no
-    if nerr>=1:
+     
         dni_inc.append(dni)
-    elif nerr==0:
-        dni_corr.append(dni)
-    
-    s=input('desea continuar? s/n')
-    break
-    
+        nerr+=1
+        ert+=nerr
+        lista_intentos.append(1)
+        if len(DNI)!=8:
+            merr.append('/error longitud/')
+        er=0
+        for z in DNI:
+            if z.isalpha()==True:
+                er+=1
+        if er>0:
+            merr.append('/el dni contiene letras/')
+            e.append(dni_f)
+    if nerr>0:
+        print(merr)
 
-print(nerr)
-print(rest)
-print(dni_num_part)
-print(DNI)
-print(f'{dni_num_part}-{lf}')
+    s=input('desea continuar? s/n')
+    if s=='n':
+        break
+
+
+print('programa finalizado')
+errores=len(dni_inc)
+corr=len(dni_corr)
+dni_corr.sort()
+dni_final.sort()
+#mostrar
+print(dni_corr)
+print(dni_inc)
+print('*****************************************')
+print('el numero de errores es de:',errores)
+print('el numero de DNIs correctos es de:',corr)
+print('*****************************************')
+print('el numero de intentos es de:',len(dni_inc)+len(dni_corr))
+print('el porcentaje de los DNIs correctos es de:',round(corr/(len(dni_inc)+len(dni_corr))*100, 2),' %')
+print('el porcentaje de los DNIs incorrectos es de:',round(errores/(len(dni_inc)+len(dni_corr))*100, 2),' %')
+error_alpha=len(e)
+error_len=errores-error_alpha
+print('*****************************************')
+print('el porcentaje de los fallos de longitud es de:',round(error_len/(len(dni_inc)+len(dni_corr))*100, 2),' %')
+print('el porcentaje de los fallos de letras es de:',round(error_alpha/(len(dni_inc)+len(dni_corr))*100, 2),' %')
