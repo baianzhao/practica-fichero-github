@@ -10,18 +10,25 @@
 
 
 
-
 resto=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]
+
 l='T,R,W,A,G,M,Y,F,P,D,X,B,N,J,Z,S,Q,V,H,L,C,K,E'
+
 letras=l.split(',')
+
+
 s='s'
 ert=0
-errores=0
-lista_intentos=[]
-dni_inc,dni_corr=[],[]
-dni_iniciales,dni_final=[],[]
-e=[]
 
+errores=0
+
+lista_intentos=[]
+
+dni_inc,dni_corr=[],[]
+
+dni_iniciales,dni_final=[],[]
+
+ell,eaa,ett=0,0,0
 while s=='s':
     nerr=0
     let_dni=''
@@ -61,6 +68,7 @@ while s=='s':
         #averiguar el resto
         rest=dni % 23
 
+
         #detectar si el resto esta dentro de lista
         if int(rest) not in resto:
             nerr+=1
@@ -68,13 +76,12 @@ while s=='s':
             merr.append('/el DNI no existe/')#error imposible
             lista_intentos.append(2)
             
-            
         else:
             #averiguar letra
             if len(DNI)==8:
                 nerr=nerr
                 let_dni=letras[int(rest)]
-        
+    
         #resultado correcto o no
 
                 dni_f=f'{dni}-{let_dni}'
@@ -88,29 +95,42 @@ while s=='s':
             dni_corr.append(dni_f)
             lista_intentos.append(3)
             print(dni_f)
+   
 #errores
     else:
-     
+        el,ea,et=0,0,0
         dni_inc.append(dni)
         nerr+=1
         ert+=nerr
-        lista_intentos.append(1)
+
         if len(DNI)!=8:
-            merr.append('/error longitud/')
+            el+=1
         er=0
         for z in DNI:
             if z.isalpha()==True:
                 er+=1
         if er>0:
-            merr.append('/el dni contiene letras/')
-            e.append(dni_f)
+            ea+=1
+
+        if el==1:
+            merr.append('/error longitud/')
+            lista_intentos.append(0)
+        if ea==1:
+            merr.append('/error letras/')
+            lista_intentos.append(1)
+
+        if el==1 and ea==1:
+            et+=1
+        ell+=el
+        eaa+=ea
+        ett+=et
+
     if nerr>0:
         print(merr)
 
     s=input('desea continuar? s/n')
     if s=='n':
         break
-
 
 print('programa finalizado')
 errores=len(dni_inc)
@@ -127,8 +147,10 @@ print('*****************************************')
 print('el numero de intentos es de:',len(dni_inc)+len(dni_corr))
 print('el porcentaje de los DNIs correctos es de:',round(corr/(len(dni_inc)+len(dni_corr))*100, 2),' %')
 print('el porcentaje de los DNIs incorrectos es de:',round(errores/(len(dni_inc)+len(dni_corr))*100, 2),' %')
-error_alpha=len(e)
-error_len=errores-error_alpha
+error_alpha=eaa
+error_len=ell
 print('*****************************************')
 print('el porcentaje de los fallos de longitud es de:',round(error_len/(len(dni_inc)+len(dni_corr))*100, 2),' %')
 print('el porcentaje de los fallos de letras es de:',round(error_alpha/(len(dni_inc)+len(dni_corr))*100, 2),' %')
+print('el porcentaje de los fallos en tanto las letras como en la longitud es de:',round(ett/(len(dni_inc)+len(dni_corr))*100, 2),' %')
+print(lista_intentos)
