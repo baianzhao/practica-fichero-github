@@ -85,9 +85,9 @@ while s=='s':#mientrar la respuesta del bucle sea [s] de si, repetir las introdu
             lista_intentos.append(1)
         if el==1 and ea==1:
             et+=1
-        ell+=el#total de errores
-        eaa+=ea
-        ett+=et
+        ell+=el#total de errores de longitud
+        eaa+=ea#total de errores de letras
+        ett+=et#total de errores en todo.
     if nerr>0:
         print(merr)#mostrar los errores(mensajes)
     s=input('desea continuar? s/n')
@@ -96,8 +96,8 @@ while s=='s':#mientrar la respuesta del bucle sea [s] de si, repetir las introdu
 print('programa finalizado')#mensaje de programa final
 errores=len(dni_inc)#sacar dnis incorrectos
 corr=len(dni_corr)#sacar total de dnis correctos
-dni_corr.sort()
-dni_final.sort()
+dni_corr.sort()#ordenar la lista
+dni_final.sort()#ordenar lista
 #mostrar
 print(dni_corr)#mostrar la lista de dnis correctos
 print(dni_inc)#mostrar los dnis incorrectos
