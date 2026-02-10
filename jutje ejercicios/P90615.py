@@ -1,0 +1,7 @@
+n=input()
+n1,n2,n3=n.split()
+float(n1)
+float(n2)
+float(n3)
+nmax=max(n1,n2,n3)
+print(int(nmax))
