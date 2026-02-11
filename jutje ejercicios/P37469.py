@@ -1,9 +1,7 @@
 st=int(input())
-hs=(st/60)//60
 h=st//60
 horas=h//60
 m=(horas*60)
-ms=(hs*60)
 min=m//60
-s=st-(hs+ms)
+s=(st-horas*60*60-min*60)/60
 print(horas,min,s)
