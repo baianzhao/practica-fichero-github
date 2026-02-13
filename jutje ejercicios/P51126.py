@@ -1,11 +1,25 @@
 i=input()
-a1,a2,b1,b2=i.split()
-if a1>b1:
+a1,b1,a2,b2=i.split()
+
+if a1>a2:
     x=a1
+
+elif a2>a1:
+    x=a2
 else:
     x=a1
-if a2>b2:
+ 
+
+if b1>b2:
     y=b2
+   
+elif b2>b1:
+    y=b1
+
 else:
-    y=a2
-print(f'[{x},{y}]')
+    y=b2
+   
+if int(a2)>int(b1) or int(x)>int(y):
+    print('[]')
+else:
+    print(f'[{x},{y}]')
