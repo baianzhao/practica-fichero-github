@@ -27,9 +27,6 @@ while sino==False:
                 Lista_partida[p]=inp
                 ac+=1
         print('[',*Lista_partida,']')
-    if ac==len(pal_sec_splited):
-        break
-
     else:
         Lista_ahorcado.append(pal_ahorc[err])
         err+=1
@@ -37,4 +34,20 @@ while sino==False:
         print('[',*Lista_partida,']')
         if err==8:
             break
+    if ac==len(pal_sec_splited):
+        break
+print('¿desea añadir palabra nueva? s/n')
+sn_new_w=input()
+if sn_new_w=='s':
+    nw=input()
+    nw=nw.lower()
+    Lista_palabrasecreta.append(nw)
+print('¿desea seguir? s/n')
+sn=input()
+if sn=='n':
+    print('programa finalizado')
+elif sn=='s':
+    sn=sn
+
+
 
