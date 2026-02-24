@@ -52,11 +52,14 @@ while completo==0:
         nw=input('introduce palabra nueva: ')
         nw=nw.lower()
         Lista_palabrasecreta.append(nw)
+        print(f'¡se ha añadido la palabra {nw} correctamente!')
     
     print('¿desea seguir? s/n')
     sn=input()
     if sn=='n':
         print('programa finalizado')
+        print(len(Lista_err),' error/es en total')
+        print(len(lista_acc),' acierto/s en total')
         completo=1
     elif sn=='s':
         completo=0
