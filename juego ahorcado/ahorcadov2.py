@@ -16,7 +16,7 @@ while completo==0:
         Lista_partida.append(',')
     Lista_partida.pop()
     print('[',*Lista_partida,']')
-    ac=0
+
     err=0
     while sino==False:
         p=-2
@@ -28,7 +28,6 @@ while completo==0:
                 p+=2
                 if inp==x:
                     Lista_partida[p]=inp
-                    ac+=1
             print('[',*Lista_partida,']')
         else:
             Lista_ahorcado.append(pal_ahorc[err])
@@ -37,7 +36,7 @@ while completo==0:
             print('[',*Lista_partida,']')
             if err==8:
                 sino=True
-        if ac==len(pal_sec_splited):
+        if '_' not in Lista_partida:
             sino=True
     
     print('¿desea añadir palabra nueva? s/n')
