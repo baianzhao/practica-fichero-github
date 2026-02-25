@@ -1,8 +1,23 @@
 import random
 import time
+def leer_txt_como_lista(ruta_archivo):
+    try:
+        with open(ruta_archivo, "r", encoding="utf-8") as archivo:
+            # strip() elimina saltos de línea y espacios extra
+            lista = [linea.strip() for linea in archivo if linea.strip()]
+        return lista
+    except FileNotFoundError:
+        print(f"Error: No se encontró el archivo '{ruta_archivo}'.")
+        return []
+    except Exception as e:
+        print(f"Ocurrió un error: {e}")
+        return []
+
+
+ruta = 
+lista_datos = leer_txt_como_lista(ruta)
 sino=False
-Lista_palabrasecreta=['pepé']
-#['perro','gato','agua','tiburon','manzana','reloj','ordenador','casa','python','minecraft','tetris','esternocleidomastoideo']
+Lista_palabrasecreta=[lista_datos]
 completo=0
 while completo==0:
     sino=False

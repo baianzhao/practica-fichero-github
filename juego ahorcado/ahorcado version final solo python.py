@@ -65,22 +65,36 @@ while completo==0:
             t_usado=round(t_usado, 2)
             print(f'ha usado {t_usado} segundos para completar la palabra')
             
-    print('¿desea añadir palabra nueva? s/n')
-    sn_new_w=input()
-    if sn_new_w=='s':
-        nw=input('introduce palabra nueva: ')
-        nw=nw.lower()
-        Lista_palabrasecreta.append(nw)
-        print(f'¡se ha añadido la palabra {nw} correctamente!')
-    
-    print('¿desea seguir? s/n')
-    sn=input()
-    if sn=='n':
-        print('programa finalizado')
-        print(len(Lista_err),' error/es en total')
-        print(len(lista_acc),' acierto/s en total')
-        completo=1
-    elif sn=='s':
-        completo=0
-        print('siguiente ronda')
+    impcorr=0
+    while impcorr==0:
+        print('¿desea añadir palabra nueva? s/n')
+        sn_new_w=input()
+        if sn_new_w=='s' or sn_new_w=='S':
+            nw=input('introduce palabra nueva: ')
+            nw=nw.lower()
+            Lista_palabrasecreta.append(nw)
+            print(f'¡se ha añadido la palabra {nw} correctamente!')
+            impcorr=1
+        elif sn_new_w=='n' or sn_new_w=='N':
+            print('no se ha realizado nada')
+            impcorr=1
+        else:
+            impcorr=0
+        
+    seguir=0
+    while seguir==0:
+        print('¿desea seguir? s/n')
+        sn=input()
+        if sn=='n'or sn=='N':
+            print('programa finalizado')
+            print(len(Lista_err),' error/es en total')
+            print(len(lista_acc),' acierto/s en total')
+            completo=1
+            seguir=1
+        elif sn=='s' or sn=='S':
+            completo=0
+            print('siguiente ronda')
+            seguir=1
+        else:
+            seguir=0
 
