@@ -55,6 +55,3 @@ while completo==0:
         completo=0
         print('siguiente ronda')
 
-
-
- 

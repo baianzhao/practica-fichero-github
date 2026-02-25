@@ -1,4 +1,5 @@
 import random
+import time
 sino=False
 Lista_palabrasecreta=['perro','gato','agua','tiburon','manzana','reloj','ordenador','casa','python','minecraft','tetris','esternocleidomastoideo']
 completo=0
@@ -17,6 +18,7 @@ while completo==0:
         Lista_partida.append(',')
     Lista_partida.pop()
     print('[',*Lista_partida,']')
+    ini=time.time()
 
     err=0
     while sino==False:
@@ -45,7 +47,11 @@ while completo==0:
                 sino=True
         if '_' not in Lista_partida:
             sino=True
-    
+            tf=time.time()
+            t_usado=tf-ini
+            t_usado=round(t_usado, 2)
+            print(f'ha usado {t_usado} segundos para completar la palabra')
+            
     print('¿desea añadir palabra nueva? s/n')
     sn_new_w=input()
     if sn_new_w=='s':

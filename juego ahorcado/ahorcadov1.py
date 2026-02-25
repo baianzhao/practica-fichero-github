@@ -1,6 +1,7 @@
 import random
 sino=False
 Lista_palabrasecreta=['perro','gato','agua','tiburon','manzana','reloj','ordenador','casa','python','minecraft','tetris','esternocleidomastoideo']
+
 Lista_partida=[]
 Lista_ahorcado=[]
 palabra_sec=random.choice(Lista_palabrasecreta)
@@ -51,3 +52,4 @@ elif sn=='s':
 
 
 
+ 
