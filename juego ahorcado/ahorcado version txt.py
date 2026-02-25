@@ -1,7 +1,8 @@
 import random
 import time
 sino=False
-Lista_palabrasecreta=['perro','gato','agua','tiburon','manzana','reloj','ordenador','casa','python','minecraft','tetris','esternocleidomastoideo']
+Lista_palabrasecreta=['pepé']
+#['perro','gato','agua','tiburon','manzana','reloj','ordenador','casa','python','minecraft','tetris','esternocleidomastoideo']
 completo=0
 while completo==0:
     sino=False
