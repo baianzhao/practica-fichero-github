@@ -71,6 +71,7 @@ while completo==0:
             t_usado=round(t_usado, 2)
             t_min=t_usado//60
             t_seg=t_usado%60
+            t_min,t_seg=round(t_min),round(t_seg)
             print('enhorabuena!!, has acertado!!')      
     print()
     print('*'*5,'ESTADISTICAS','*'*5)
