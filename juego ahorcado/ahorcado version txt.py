@@ -1,13 +1,16 @@
 import random
 import time
+
 Lista_palabrasecreta=[]
-with open('0_palabras_todas.txt', 'r') as tf:
-    lines = tf.read().split(",")
 
-for line in lines:
-    Lista_palabrasecreta.append(line)
+f=open("palabra.txt", "r")
+dic=f.read()
+f.close
+m=dic.split(',')
+for h in m:
+    Lista_palabrasecreta.append(h)
+
 sino=False
-
 completo=0
 while completo==0:
     sino=False
