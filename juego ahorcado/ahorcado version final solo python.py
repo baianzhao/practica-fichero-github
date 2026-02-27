@@ -1,7 +1,9 @@
 import random
 import time
+from datetime import datetime
+import os
 sino=False
-Lista_palabrasecreta=['perro','gato','agua','tiburon','manzana','reloj','ordenador','casa','python','minecraft','tetris','esternocleidomastoideo']
+Lista_palabrasecreta=['perro','gato','agua','tiburon','manzana','reloj','ordenador','casa','python','minecraft']
 completo=0
 while completo==0:
     sino=False
@@ -25,14 +27,12 @@ while completo==0:
             pal_sec_splited[posicion]='u'
     n_guiones=len(palabra_sec)
     pal_ahorc=['A','H','O','R','C','A','D','O']
-
     for x in range(n_guiones):
         Lista_partida.append('_')
         Lista_partida.append(',')
     Lista_partida.pop()
     print('[',*Lista_partida,']')
     ini=time.time()
-
     err=0
     while sino==False:
         p=-2
@@ -56,15 +56,39 @@ while completo==0:
             Lista_err.append(inp)
             print('[',*Lista_partida,']')
             if err==8:
-                
                 sino=True
+                tf=time.time()
+                t_usado=tf-ini
+                t_usado=round(t_usado, 2)
+                t_min=t_usado//60
+                t_seg=t_usado%60
+                print('No has acertado la palabra correcta, la palabra secreta era: ',palabra_sec)
+                print(f'ha usado {t_min} minutos y {t_seg} segundos para acabar la partida')     
         if '_' not in Lista_partida:
             sino=True
             tf=time.time()
             t_usado=tf-ini
             t_usado=round(t_usado, 2)
-            print(f'ha usado {t_usado} segundos para completar la palabra')
-            
+            t_min=t_usado//60
+            t_seg=t_usado%60
+            print('enhorabuena!!, has acertado!!')      
+    print()
+    print('*'*5,'ESTADISTICAS','*'*5)
+    print(len(Lista_err),' error/es en total')
+    print(len(lista_acc),' acierto/s en total')
+    print(f'ha usado {t_min} minutos y {t_seg} segundos para completar la palabra')  
+
+    ahora = datetime.now()  
+    fecha_formateada = ahora.strftime("%d/%m/%Y %H:%M:%S")
+    print(fecha_formateada)
+    contenido=f'{fecha_formateada}/{palabra_sec}/numero de errores:{len(Lista_err)}/numero de aciertos:{len(lista_acc)}'
+
+    directorio_actual = os.path.dirname(os.path.abspath(__file__))
+    ruta_archivo = os.path.join(directorio_actual, "text.txt")
+    with open(ruta_archivo, "a", encoding="utf-8") as archivo:
+        archivo.write(contenido + "\n")
+        archivo.flush() 
+        
     impcorr=0
     while impcorr==0:
         print('¿desea añadir palabra nueva? s/n')
@@ -73,28 +97,24 @@ while completo==0:
             nw=input('introduce palabra nueva: ')
             nw=nw.lower()
             Lista_palabrasecreta.append(nw)
-            print(f'¡se ha añadido la palabra {nw} correctamente!')
+            print(f'¡se ha añadido la palabra "{nw}" correctamente!')
             impcorr=1
         elif sn_new_w=='n' or sn_new_w=='N':
-            print('no se ha realizado nada')
+            print('no se ha añadido palabra')
             impcorr=1
         else:
             impcorr=0
-        
     seguir=0
     while seguir==0:
         print('¿desea seguir? s/n')
         sn=input()
         if sn=='n'or sn=='N':
-            print('programa finalizado')
-            print(len(Lista_err),' error/es en total')
-            print(len(lista_acc),' acierto/s en total')
             completo=1
             seguir=1
+            print('programa finalizado')
         elif sn=='s' or sn=='S':
             completo=0
             print('siguiente ronda')
             seguir=1
         else:
             seguir=0
-
