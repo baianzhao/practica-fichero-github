@@ -80,7 +80,6 @@ while completo==0:
 
     ahora = datetime.now()  
     fecha_formateada = ahora.strftime("%d/%m/%Y %H:%M:%S")
-    print(fecha_formateada)
     contenido=f'{fecha_formateada}/{palabra_sec}/numero de errores:{len(Lista_err)}/numero de aciertos:{len(lista_acc)}'
 
     directorio_actual = os.path.dirname(os.path.abspath(__file__))
