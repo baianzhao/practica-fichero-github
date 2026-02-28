@@ -37,8 +37,10 @@ while completo==0:
     while sino==False:
         p=-2
         list_pos=[]
-        inp=input('introduce la letra: ')
-        inp=inp.lower()
+        inp=input('introduce la letra: ').lower()
+        if len(inp) != 1 or not inp.isalpha():
+            print("Error: Por favor, introduce solo una letra válida.")
+            continue
         if inp in pal_sec_splited:
             if  inp in Lista_partida:
                 print('la letra ya está usada')
