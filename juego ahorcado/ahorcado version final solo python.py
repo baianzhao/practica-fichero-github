@@ -73,13 +73,22 @@ while completo==0:
             t_seg=t_usado%60
             t_min,t_seg=round(t_min),round(t_seg)
             print('enhorabuena!!, has acertado!!')      
+
+    Lista_palabrasecreta.remove(palabra_sec)
     n_partidas+=1
     print()
     print('*'*5,'ESTADISTICAS','*'*5)
     print(len(Lista_err),' error/es en total')
     print(len(lista_acc),' acierto/s en total')
     print(f'ha usado {t_min} minutos y {t_seg} segundos para completar la palabra') 
-    print(f'ha jugado{n_partidas} partida/s')
+    print(f'ha jugado {n_partidas} partida/s')
+
+    if len(Lista_palabrasecreta)==0:
+        print('eres un crack! has adivinado todas las palabras!!!')
+        completo=1
+        seguir=1
+        print('programa finalizado')
+        break
      
 
     ahora = datetime.now()  
