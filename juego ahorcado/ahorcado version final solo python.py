@@ -64,8 +64,7 @@ while completo==0:
                 t_usado=round(t_usado, 2)
                 t_min=t_usado//60
                 t_seg=t_usado%60
-                print('No has acertado la palabra correcta, la palabra secreta era: ',palabra_sec)
-                print(f'ha usado {t_min} minutos y {t_seg} segundos para acabar la partida')     
+                print('No has acertado la palabra correcta, la palabra secreta era: ',palabra_sec)    
         if '_' not in Lista_partida:
             sino=True
             tf=time.time()
