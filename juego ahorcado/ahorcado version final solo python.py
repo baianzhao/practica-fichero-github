@@ -4,7 +4,7 @@ from datetime import datetime
 import os
 sino=False
 Lista_palabrasecreta=['perro','gato','agua','tiburon','manzana','reloj','ordenador','casa','python','minecraft']
-completo=0
+completo,n_partidas=0,0
 while completo==0:
     sino=False
     Lista_partida=[]
@@ -73,11 +73,14 @@ while completo==0:
             t_seg=t_usado%60
             t_min,t_seg=round(t_min),round(t_seg)
             print('enhorabuena!!, has acertado!!')      
+    n_partidas+=1
     print()
     print('*'*5,'ESTADISTICAS','*'*5)
     print(len(Lista_err),' error/es en total')
     print(len(lista_acc),' acierto/s en total')
-    print(f'ha usado {t_min} minutos y {t_seg} segundos para completar la palabra')  
+    print(f'ha usado {t_min} minutos y {t_seg} segundos para completar la palabra') 
+    print(f'ha jugado{n_partidas} partida/s')
+     
 
     ahora = datetime.now()  
     fecha_formateada = ahora.strftime("%d/%m/%Y %H:%M:%S")
