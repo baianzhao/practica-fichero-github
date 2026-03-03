@@ -1,3 +1,6 @@
+#hay que tener un txt llamado "text.txt" abierto en la misma carpeta y el archivo de "0_palabras_todas.txt" 
+# en una carpeta fuera de el programa o en la misma carpeta.
+
 import random
 import time
 from datetime import datetime

@@ -1,7 +1,9 @@
+#PARA PODER USAR CORRECTAMENTE, SE HA DE TENER UN ARCHIVO TXT LLAMADO : "text.txt" ABIERTO EN LA MISMA CARPETA.
+
 import random
 import time
-from datetime import datetime
-import os
+from datetime import datetime#para la hora y fecha
+import os #Para cambiar o configurar la ruta para poder escribir y almazenar información en el txt
 sino=False
 Lista_palabrasecreta=['perro','gato','agua','tiburon','manzana','reloj','ordenador','casa','python','minecraft']
 completo,n_partidas=0,0
@@ -13,7 +15,7 @@ while completo==0:
     palabra_sec=random.choice(Lista_palabrasecreta)
     pal_sec_splited=[ch for ch in palabra_sec]
     posicion=-1
-    for n in pal_sec_splited:
+    for n in pal_sec_splited:#quita accentos (para futura version con diccionario completo)
         posicion+=1
         if n in 'áÁ':
             pal_sec_splited[posicion]='a'
@@ -92,11 +94,11 @@ while completo==0:
         break
      
 
-    ahora = datetime.now()  
+    ahora = datetime.now()  #almazenar y formatear la hora y fecha
     fecha_formateada = ahora.strftime("%d/%m/%Y %H:%M:%S")
     contenido=f'{fecha_formateada}/{palabra_sec}/numero de errores:{len(Lista_err)}/numero de aciertos:{len(lista_acc)}'
 
-    directorio_actual = os.path.dirname(os.path.abspath(__file__))
+    directorio_actual = os.path.dirname(os.path.abspath(__file__))#configurar la ruta para poder escribir correctamente
     ruta_archivo = os.path.join(directorio_actual, "text.txt")
     with open(ruta_archivo, "a", encoding="utf-8") as archivo:
         archivo.write(contenido + "\n")

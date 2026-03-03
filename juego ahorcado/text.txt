@@ -1,2 +1,3 @@
 03/03/2026 10:02:01/perro/numero de errores:0/numero de aciertos:5
 03/03/2026 10:28:46/suzón/numero de errores:8/numero de aciertos:1
+03/03/2026 10:37:46/chicharroneabais/numero de errores:8/numero de aciertos:10
