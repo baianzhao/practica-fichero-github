@@ -4,7 +4,7 @@ from datetime import datetime
 import os
 sino=False
 
-f = open("palabra.txt", "r", encoding='utf-8')
+f = open("0_palabras_todas.txt", "r", encoding='utf-8')
 diccionario= f.read().splitlines()
 Lista_palabrasecreta=diccionario
 completo,n_partidas=0,0
