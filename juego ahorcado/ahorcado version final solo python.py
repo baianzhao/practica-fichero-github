@@ -40,6 +40,16 @@ while completo==0:
         p=-2
         list_pos=[]
         inp=input('introduce la letra: ').lower()
+        if inp in 'Áá':
+            inp='a'
+        if inp in 'Éé':
+            inp='e'
+        if inp in 'Íí':
+            inp='i'
+        if inp in 'Óó':
+            inp='o'
+        if inp in 'Úú':
+            inp='u'
         if len(inp) != 1 or not inp.isalpha():
             print("Error: Por favor, introduce solo una letra válida.")
             continue

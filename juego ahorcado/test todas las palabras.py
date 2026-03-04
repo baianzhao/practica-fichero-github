@@ -44,12 +44,12 @@ while completo==0:
         p=-2
         list_pos=[]
         inp=input('introduce la letra: ').lower()
-        if len(inp) != 1 or not inp.isalpha():
+        if len(inp) != 1 or not inp.isalpha():#si el input no es una sola letra o es un caracter random(simbolo o numero), detecta error
             print("Error: Por favor, introduce solo una letra válida.")
             continue
         if inp in pal_sec_splited:
             if  inp in Lista_partida:
-                print('la letra ya está usada')
+                print('la letra ya está usada')#si la letra ya esta en la lista partida, se detecta como ya usada
             else:
                 for x in pal_sec_splited:
                     p+=2
@@ -62,10 +62,10 @@ while completo==0:
             err+=1
             print(*Lista_ahorcado)
             Lista_err.append(inp)
-            print('[',*Lista_partida,']')
+            print('[',*Lista_partida,']') #mostrar los guiones con las letras
             if err==8:
                 sino=True
-                tf=time.time()
+                tf=time.time()#calcular tiempo
                 t_usado=tf-ini
                 t_usado=round(t_usado, 2)
                 t_min=t_usado//60
@@ -74,17 +74,17 @@ while completo==0:
         if '_' not in Lista_partida:
             sino=True
             tf=time.time()
-            t_usado=tf-ini
+            t_usado=tf-ini#calcular el tiempo en segundos y mintuos
             t_usado=round(t_usado, 2)
             t_min=t_usado//60
             t_seg=t_usado%60
             t_min,t_seg=round(t_min),round(t_seg)
             print('enhorabuena!!, has acertado!!')      
 
-    Lista_palabrasecreta.remove(palabra_sec)
-    n_partidas+=1
+    Lista_palabrasecreta.remove(palabra_sec)#quitar la palabra adivinada
+    n_partidas+=1#conteo de las partidas
     print()
-    print('*'*5,'ESTADISTICAS','*'*5)
+    print('*'*5,'ESTADISTICAS','*'*5)#mostrar las estadisticas.
     print(len(Lista_err),' error/es en total')
     print(len(lista_acc),' acierto/s en total')
     print(f'ha usado {t_min} minutos y {t_seg} segundos para completar la palabra') 
@@ -97,25 +97,24 @@ while completo==0:
         print('programa finalizado')
         break
      
-
-    ahora = datetime.now()  
-    fecha_formateada = ahora.strftime("%d/%m/%Y %H:%M:%S")
+    ahora = datetime.now()  #asignar fecha de ahora
+    fecha_formateada = ahora.strftime("%d/%m/%Y %H:%M:%S")#formatear la fecha y hora
     contenido=f'{fecha_formateada}/{palabra_sec}/numero de errores:{len(Lista_err)}/numero de aciertos:{len(lista_acc)}'
 
-    directorio_actual = os.path.dirname(os.path.abspath(__file__))
-    ruta_archivo = os.path.join(directorio_actual, "text.txt")
+    directorio_actual = os.path.dirname(os.path.abspath(__file__)) # se podria hacer más facil, se ha importado os
+    ruta_archivo = os.path.join(directorio_actual, "text.txt")      # para asegurar que se modifique el txt adecuado y que la ruta sea correcta.
     with open(ruta_archivo, "a", encoding="utf-8") as archivo:
         archivo.write(contenido + "\n")
         archivo.flush() 
         
     impcorr=0
-    while impcorr==0:
+    while impcorr==0:#bucle para asegurar que el input del usuario sea correcto. se podria usar tambien el continue
         print('¿desea añadir palabra nueva? s/n')
         sn_new_w=input()
         if sn_new_w=='s' or sn_new_w=='S':
             nw=input('introduce palabra nueva: ')
             nw=nw.lower()
-            Lista_palabrasecreta.append(nw)
+            Lista_palabrasecreta.append(nw)#añadir palabra nueva
             print(f'¡se ha añadido la palabra "{nw}" correctamente!')
             impcorr=1
         elif sn_new_w=='n' or sn_new_w=='N':
