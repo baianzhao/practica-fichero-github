@@ -15,12 +15,13 @@ for i in range(len(prec)):
     total+=prec[i]*stock[i]
 
 maxim=prec[0]
+
 ind=0
 for z in range(0,len(prec)):
     if prec[z]>maxim:
         maxim=prec[z]
         ind=z
-res_max=nom[z]
+        res_max=nom[z]
 for x in range(len(stock)):
     if stock[x]==0:
         resumen_max_product=nom[x]
