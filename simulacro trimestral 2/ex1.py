@@ -1,23 +1,20 @@
-puntos=input().split(',')
-lista_media=[]
-for x in puntos:
+inp=input().split(',')
+lista=[]
+for x in inp:
     x=int(x)
-    lista_media.append(x)
-lista_media.sort()
-lista_media.pop(0)
-lista_media.pop(len(lista_media)-1)
-print(puntos)
-print(lista_media)
-suma=sum(lista_media)
-media=suma/len(lista_media)
-media=round(media)
-media2=f'{media:.2f}'
-print(media2)
-if media<5:
+    lista.append(x)
+lista.sort()
+print(lista)
+lista.pop(0)
+lista.pop(len(lista)-1)
+print(lista)
+suma=sum(lista)
+media=suma/len(lista)
+media_formateada=float(media)
+print(f'{media:.2f}')
+if media_formateada<5:
     print('rendimiento bajo')
-elif media<=10 and media >=5:
+elif media_formateada>=5 and media_formateada<=10:
     print('rendimiento medio')
-elif media>10:
+elif media_formateada>10:
     print('rendimiento alto')
-
-
