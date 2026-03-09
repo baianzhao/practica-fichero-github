@@ -1,42 +1,35 @@
 prod=input().split('-')
-print(prod)
-nom=[]
-prec=[]
+nombre=[]
+precio=[]
 stock=[]
-resumen_max_product=''
-res_max=''
 for x in prod:
     d=x.split(':')
-    nom.append(d[0])
-    prec.append(float(d[1]))
+    nombre.append(d[0])
+    precio.append(float(d[1]))
     stock.append(int(d[2]))
+print(nombre, precio, stock)
 total=0
-for i in range(len(prec)):
-    total+=prec[i]*stock[i]
-
-maxim=prec[0]
-
-ind=0
-for z in range(0,len(prec)):
-    if prec[z]>maxim:
-        maxim=prec[z]
-        ind=z
-        res_max=nom[z]
+for y in range(len(precio)):
+    y=int(y)
+    total+=(precio[y]) * (stock[y])
+print('el total de dinero es de: ',total)
+mascaro=0
+cosacara=''
+for i in range(len(precio)):
+    if precio[i] > mascaro:
+        mascaro=precio[i]
+        cosacara=nombre[i]
+print('el producto mas caro es: ', cosacara)
+ 
+stock0=[]
 for x in range(len(stock)):
     if stock[x]==0:
-        resumen_max_product=nom[x]
+        stock0.append(nombre[x])
+print('los productos con stock 0 son o es: ',stock0)
 
-
-for i in range(len(stock) - 1, -1, -1):
-    if stock[i] == 0:    
-        nom.pop(i)  
-        prec.pop(i)     
-        stock.pop(i)
-
-
-print(resumen_max_product)
-print(res_max)
-print(nom)
-print(prec)
-print(stock)
-print(total)
+for z in range(len(stock) - 1, -1, -1):
+    if stock[z]==0:
+        nombre.pop(z)
+        stock.pop(z)
+        precio.pop(z)
+print(nombre, precio, stock)
