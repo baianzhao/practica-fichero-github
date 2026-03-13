@@ -4,3 +4,4 @@
 03/03/2026 10:39:33/anexionaríamos/numero de errores:5/numero de aciertos:14
 04/03/2026 09:14:46/diptongué/numero de errores:8/numero de aciertos:1
 04/03/2026 09:41:32/python/numero de errores:1/numero de aciertos:6
+13/03/2026 15:55:32/puerilizamos/numero de errores:8/numero de aciertos:8

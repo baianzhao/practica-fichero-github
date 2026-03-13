@@ -165,5 +165,6 @@ while completo==0:#detectar si se para o acaba la partida
             completo=0
             print('siguiente ronda')
             seguir=1
+            comodines=3
         else:
             seguir=0
