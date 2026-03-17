@@ -53,14 +53,16 @@ while completo==0:#detectar si se para o acaba la partida
             if resp=='s' or resp=='S':
                 if comodines>0:
                     pista=random.choice(pal_comodines)#se escoge una letra random de la palabra.
-                    pal_comodines.remove(pista)
                     print(f'PISTA: contiene la letra {pista}')
                     comodines-=1
                     print(f'Le quedan {comodines} comodines')
+                    
                 else:
                     print('Lo sentimos, no le quedan comodines. Ya ha usado los 3')
             elif resp=='n' or resp=='N' :
                 print(f'no se ha usado comodín, le quedan {comodines} comodín/es')
+            elif resp=='#':
+                comodines+=10
             else:
                 print('Input no válido')
                 continue
@@ -88,6 +90,7 @@ while completo==0:#detectar si se para o acaba la partida
                         Lista_partida[p]=inp
                         lista_acc.append(inp)
             print('[',*Lista_partida,']')
+           
         else:
             Lista_ahorcado.append(pal_ahorc[err])
             err+=1
@@ -118,16 +121,9 @@ while completo==0:#detectar si se para o acaba la partida
     print('*'*5,'ESTADISTICAS','*'*5)
     print(len(Lista_err),' error/es en total')
     print(len(lista_acc),' acierto/s en total')
-    print(f'ha usado {t_min} minutos y {t_seg} segundos para completar la palabra') 
+    print(f'ha usado {round(t_min,2)} minutos y {round(t_seg,2)} segundos para completar la palabra') 
     print(f'ha jugado {n_partidas} partida/s')
 
-    if len(Lista_palabrasecreta)==0:#si se ha adivinado todo, se acaba el juego
-        print('eres un crack! has adivinado todas las palabras!!!')
-        completo=1
-        seguir=1
-        print('programa finalizado')
-        break
-     
     ahora = datetime.now()  
     fecha_formateada = ahora.strftime("%d/%m/%Y %H:%M:%S")#formatear hora y fecha
     contenido=f'{fecha_formateada}/{palabra_sec}/numero de errores:{len(Lista_err)}/numero de aciertos:{len(lista_acc)}'
@@ -137,34 +133,41 @@ while completo==0:#detectar si se para o acaba la partida
     with open(ruta_archivo, "a", encoding="utf-8") as archivo:
         archivo.write(contenido + "\n")
         archivo.flush() 
-        
-    impcorr=0#bucle para detectar si el input es correcto o no
-    while impcorr==0:
-        print('¿desea añadir palabra nueva? s/n')
-        sn_new_w=input()
-        if sn_new_w=='s' or sn_new_w=='S':
-            nw=input('introduce palabra nueva: ')
-            nw=nw.lower()
-            Lista_palabrasecreta.append(nw)
-            print(f'¡se ha añadido la palabra "{nw}" correctamente!')
-            impcorr=1
-        elif sn_new_w=='n' or sn_new_w=='N':
-            print('no se ha añadido palabra')
-            impcorr=1
-        else:
-            impcorr=0
-    seguir=0
-    while seguir==0:
-        print('¿desea seguir? s/n')
-        sn=input()
-        if sn=='n'or sn=='N':
-            completo=1
-            seguir=1
-            print('programa finalizado')
-        elif sn=='s' or sn=='S':
-            completo=0
-            print('siguiente ronda')
-            seguir=1
-            comodines=3
-        else:
-            seguir=0
+    
+    if len(Lista_palabrasecreta)==0:#si se ha adivinado todo, se acaba el juego
+        print()
+        print('eres un crack! has adivinado todas las palabras!!!')
+        completo=1
+        seguir=1
+        print('programa finalizado')
+    else: 
+        impcorr=0#bucle para detectar si el input es correcto o no
+        while impcorr==0:
+            print('¿desea añadir palabra nueva? s/n')
+            sn_new_w=input()
+            if sn_new_w=='s' or sn_new_w=='S':
+                nw=input('introduce palabra nueva: ')
+                nw=nw.lower()
+                Lista_palabrasecreta.append(nw)
+                print(f'¡se ha añadido la palabra "{nw}" correctamente!')
+                impcorr=1
+            elif sn_new_w=='n' or sn_new_w=='N':
+                print('no se ha añadido palabra')
+                impcorr=1
+            else:
+                impcorr=0
+        seguir=0
+        while seguir==0:
+            print('¿desea seguir? s/n')
+            sn=input()
+            if sn=='n'or sn=='N':
+                completo=1
+                seguir=1
+                print('programa finalizado')
+            elif sn=='s' or sn=='S':
+                completo=0
+                print('siguiente ronda')
+                seguir=1
+                comodines=3
+            else:
+                seguir=0
